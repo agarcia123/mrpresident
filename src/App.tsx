@@ -31,7 +31,7 @@ class App extends React.Component<{}, { count: number }> {
           </p>
         </div>
         <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
+          Click on the Vite and React logos to learn more about the upcoming changes in React 18 and Vite 3!
         </p>
       </>
     )
