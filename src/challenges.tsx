@@ -23,7 +23,7 @@ class challenges extends React.Component<Props, { selected: boolean }> {
                 "Tell them, guys things are not that bad just go home and let's foget about it", 
                 "Get the police out and arrest anybody that is causing problems and breaking stuff and tell them that you are willing to hear their grivences but not in this circumstance"]
             },
-            {"question": "pijo",
+            {"question": "pijiiiiiio",
                 "options": ["pija", "pijo", "piju"]
             },
             {"question": "what would you do if you were president?",
