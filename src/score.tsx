@@ -8,7 +8,7 @@ class score extends React.Component<Props, { selected: boolean }> {
 
     render() {    return (
          <>
-        <div className="card">
+        <div className="card" data-testid="score">
             Your score is: {this.props.score}
         </div>
         </>

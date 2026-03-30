@@ -2,7 +2,19 @@
 
 ## To Start
  just type at the terminal
-yarn vite
+
+`yarn vite`
+##
+
+## to run the playwright tests
+
+type at the prompt
+
+`yarn playwright test --reporter=html`
+
+and to see the test results type:
+
+`yarn playwright show-report`
 ##
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

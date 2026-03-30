@@ -1,6 +1,6 @@
 import './App.css' 
 import React from "react";
-import Score from './scrore';
+import Score from './score';
 
 
 class challenges extends React.Component<Props, { radioSelected: boolean[], score: number }> {
@@ -74,7 +74,7 @@ class challenges extends React.Component<Props, { radioSelected: boolean[], scor
                 <div key={index} className='questions'>
                   <input type="radio" 
                          key={index} 
-                         data-test-id={`challenge-${index}-radiobutton`} 
+                         data-testid={`challenge-${index}-radiobutton`} 
                          name="question" 
                          aria-selected={this.state.radioSelected[index]} 
                          checked={this.state.radioSelected[index]}
@@ -84,7 +84,9 @@ class challenges extends React.Component<Props, { radioSelected: boolean[], scor
                                  )
                           }}  
                    />
-                  <label style={{ color: 'pink' }} htmlFor="question"> {issue.option} </label>  
+                  <label style={{ color: 'pink' }} 
+                  htmlFor="question"
+                  data-testid={`challenge-${index}-label`} > {issue.option} </label>  
                 </div>       
                </div>
               ))}
