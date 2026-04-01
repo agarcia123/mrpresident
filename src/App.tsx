@@ -20,7 +20,9 @@ class App extends React.Component<{}, { count: number }> {
       <>
 
         <h1>Today's date</h1>
-        <p>{`Hello Mr President today is ${currentDate.toDateString()}`}</p>
+        <p data-testid="date">{`Hello future Mr President today is ${currentDate.toDateString()}`}</p>
+        <p data-testid="greeting">
+          {`Welcome to the Mr President challenge, you will be given 5 questions about current events and you will have to choose the best answer, good luck!`}</p>
         <Challenges/>
         <div className="card">
           {/* <button onClick={() => this.setState({ count: this.state.count + 1 })}>
