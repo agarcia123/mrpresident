@@ -3,11 +3,12 @@ import React from "react";
 import Score from './score';
 
 
-class challenges extends React.Component<Props, { radioSelected: boolean[], score: number }> {
+class challenges extends React.Component<Props, { radioSelected: boolean[], score: number, questionCount: number}> {
   constructor(props: Props) {
     super(props)
     this.state = { radioSelected: [false,false,false], 
-      score: 0 }
+                   score: 0, 
+                   questionCount: 0 }
   }
    
   
@@ -66,14 +67,18 @@ class challenges extends React.Component<Props, { radioSelected: boolean[], scor
     console.log(this.state.radioSelected)
     return (
       <>
+      
         <div className="card" data-testid="challenge">
-          <h3 data-testid="question-title">If you were president how would you handle this situation</h3>
+          
+          <form>
+            {this.state.questionCount < 6 &&
+              <>
+            <h3 data-testid="question-title">If you were president how would you handle this situation</h3>
           <div>
             <p data-testid="question">{options.questions[randomIndex].question}</p>
-          </div>
-          <form>
-            {options.questions[randomIndex].options.map((issue, index) => (
-              <div>        
+             </div>
+               {options.questions[randomIndex].options.map((issue, index) => (
+               <div>        
                 <div key={index} className='questions'>
                   <input type="radio" 
                          key={index} 
@@ -81,19 +86,22 @@ class challenges extends React.Component<Props, { radioSelected: boolean[], scor
                          name="question" 
                          aria-selected={this.state.radioSelected[index]} 
                          checked={this.state.radioSelected[index]}
-                         onClick={(e) => {this.setState(
+                         onClick={() => {this.setState(
                                 {radioSelected: this.state.radioSelected.map((v, i) => i === index ? true : false),
-                                 score: issue.score+this.state.score + randomFactor}     
+                                 score: issue.score+this.state.score + randomFactor,
+                                 questionCount: this.state.questionCount + 1
+                                }     
                                  )
                           }}  
                    />
                   <label style={{ color: 'pink' }} 
-                  htmlFor="question"
-                  data-testid={`option-${index}-label`} > {issue.option} </label>  
+                         htmlFor="question"
+                         data-testid={`option-${index}-label`} > {issue.option} </label>  
                 </div>       
                </div>
               ))}
-            <Score score={this.state.score}/>
+              </>}
+            <Score score={this.state.score} answeredQuestions={this.state.questionCount}/>
           </form>
         </div>
         
